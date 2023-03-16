@@ -1,0 +1,154 @@
+DETAILS:
+
+what is?
+    it is a relational database management.
+    open source
+    MySQL was first released in 1995
+    MySQL is named after co-founder Monty Widenius's daughter: My
+    
+Why Uses MySQL?
+     Huge websites like Facebook, Twitter, Airbnb, Booking.com, Uber, GitHub, YouTube, etc.
+     Content Management Systems like WordPress, Drupal, Joomla!, Contao, etc.
+     A very large number of web developers around the world
+     keywords are NOT case sensitive: select is the same as SELECT
+     MySQL supports large databases, up to 50 million rows or more in a table. The default file size limit for a table is 4GB, but you can increase this (if your operating system can handle it) to a theoretical limit of 8 million terabytes (TB).
+
+disadvantages of MySQL:
+     MySQL does not support a very large database size as efficiently.
+     MySQL doesn't handle transactions very efficiently, and it is prone to data corruption.
+     MySQL is accused that it doesn't have a good developing and debugging tool compared to paid databases.
+     MySQL doesn't support SQL check constraints.
+
+What is RDBMS?
+     RDBMS stands for Relational Database Management System.
+     RDBMS is a program used to maintain a relational database.
+     stores value in table and column wise format
+     we can create tables and related to each other
+     
+Some of The Most Important SQL Commands
+     SELECT - extracts data from a database
+     UPDATE - updates data in a database
+     DELETE - deletes data from a database
+     INSERT INTO - inserts new data into a database
+     CREATE DATABASE - creates a new database
+     ALTER DATABASE - modifies a database
+     CREATE TABLE - creates a new table
+     ALTER TABLE - modifies a table
+     DROP TABLE - deletes a table
+     CREATE INDEX - creates an index (search key)
+     DROP INDEX - deletes an index
+
+DATA TYPES:
+       1)STRING DATA TYPE
+       2)NUMERIC DATA TYPE
+       3)DATE AND TIME TYPE
+  1)STRING DATA TYPE    
+         char () varchar() 
+ 2) NUMERIC DATA TYPE
+         INT ,float,double,decimal(m,d),boolea
+ 3)DATE AND TIME DATATYPE
+        date,time,datetime,
+               
+                DATABASE:
+                
+CREATE DATABASE:
+             create database employee;             //  employee database was created 
+           Query OK, 1 row affected (0.07 sec)
+SELECT DATABASE:
+             show create database employee;   // show the structure of the employee database
++----------+------------------------------------------------------------------------------------------------------------------------------------+
+| Database | Create Database                                                                                                                    |
++----------+------------------------------------------------------------------------------------------------------------------------------------+
+| employee | CREATE DATABASE `employee` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */ |
++----------+---
+        
+DROP DATABASE:
+       drop database employee;    // delete the database
+      Query OK, 0 rows affected (0.54 sec)
+
+
+                   TABLES:
+          
+ CREATE  TABLE:
+ 
+              first create database 
+              use the database we create table inside the database  
+       SYNTAX:
+              create database my;    // first create database
+             Query OK, 1 row affected (0.07 sec)
+             mysql> use my;     // use the database for create table
+             Database changed
+             mysql> CREATE TABLE employee_table( // noe create table
+           ->id int NOT NULL AUTO_INCREMENT,
+           ->name varchar(45) NOT NULL,
+           ->occupation varchar(35) NOT NULL,
+           ->age int NOT NULL,
+           ->PRIMARY KEY (id)
+           -> );
+          Query OK, 0 rows affected (0.45 sec)
+          
+SHOW TABLE:
+           
+ show tables;       // used to show the table which are created 
++----------------+
+| Tables_in_my   |
++----------------+
+| employee_table |
++-----------
+       
+
+INSERT VALUES IN TABLE:
+
+            insert many values in table
+            
+         CREATE TABLE People(
+         id int NOT NULL AUTO_INCREMENT,
+         name varchar(45) NOT NULL,
+         occupation varchar(35) NOT NULL,
+         age int,
+         PRIMARY KEY (id)
+          );
+           INSERT INTO People VALUES  
+           (102, 'Joseph', 'Developer', 30),  
+          (103, 'Mike', 'Leader', 28),  
+         (104, 'Stephen', 'Scientist', 45);  
+
+
+     output:
+ select * from People;
++-----+---------+------------+------+
+| id  | name    | occupation | age  |
++-----+---------+------------+------+
+| 102 | Joseph  | Developer  |   30 |
+| 103 | Mike    | Leader     |   28 |
+| 104 | Stephen | Scientist  |   45 |
++-----+-------
+  
+            insert single value
+            
+insert into insertone(id,name,occupation,age) values(1,"vennila","student",23);
+Query OK, 1 row affected (0.03 sec)
+mysql> select * from insertone;
++----+---------+------------+------+
+| id | name    | occupation | age  |
++----+---------+------------+------+
+|  1 | vennila | student    |   23 |
++----+---------+-
+
+
+DESCRIBE TABLE   // it is used to describe the structure of the table
+describe insertone;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int         | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(45) | NO   |     | NULL    |                |
+| occupation | varchar(35) | NO   |     | NULL    |                |
+| age        | int         | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------
+
+
+COMMANDS:
+
+singleline command: --space
+multuline command:/* */
