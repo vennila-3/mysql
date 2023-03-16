@@ -116,7 +116,7 @@ INSERT VALUES IN TABLE:
 
      output:
  select * from People;
-+-----+---------+------------+------+
++-----+---------+------------+------+/
 | id  | name    | occupation | age  |
 +-----+---------+------------+------+
 | 102 | Joseph  | Developer  |   30 |
@@ -147,7 +147,35 @@ describe insertone;
 | age        | int         | YES  |     | NULL    |                |
 +------------+-------------+------+-----+---------+----------------
 
+ ALTER TABLE:
+  
+  The ALTER statement is always used with "ADD", "DROP" and "MODIFY" commands according to the situation.
+  
+ADD: 
+     we can add column 
+     insert into foradd values
+    -> (1,"vennila"),
+    -> (2,"nila"),
+    -> (3,"ram");
+mysql> alter table foradd    
+    -> add rollnumber int not null;  // add new column as rollnumber
+mysql> describe foradd;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| id         | int         | NO   | PRI | NULL    |       |
+| name       | varchar(23) | YES  |     | NULL    |       |
+| rollnumber | int         | NO   |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+     // rollnumber was added
 
+ select * from foradd;
++----+---------+------------+
+| id | name    | rollnumber |
++----+---------+------------+
+|  1 | vennila |          0 |
+|  2 | nila    |          0 |
+|  3 | ram     |          0 |    roll number values are not added so default is 0
++----+---------+---
 COMMANDS:
 
 singleline command: --space
