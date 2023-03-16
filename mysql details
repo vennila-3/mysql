@@ -95,7 +95,35 @@ SHOW TABLE:
 +----------------+
 | employee_table |
 +-----------
-       
+
+we can show tables which are present in database
+   if we have 2 or above databases we want to show particular tables in database means
+   
+   show tables from yalini;    //from yalini means select tables in yalini database 
++------------------+
+| Tables_in_yalini |
++------------------+   // show yalini database tables like wise we can select tables 
+| yalinit          |
++-----------------
+   if we have multiple tables we want to get only one table means use
+   different ways to acheive 
+   
+      i) show tables from vennila where Tables_in_vennila="alteradd";
++-------------------+
+| Tables_in_vennila |
++-------------------+
+| alteradd          |
++-----------------
+
+ii) LIKE OPERATION 
+show tables from vennila like "alter%";
++----------------------------+
+| Tables_in_vennila (alter%) |
++----------------------------+        starting alter table only show
+| alteradd                   |
++--------------
+
+
 
 INSERT VALUES IN TABLE:
 
@@ -147,80 +175,11 @@ describe insertone;
 | age        | int         | YES  |     | NULL    |                |
 +------------+-------------+------+-----+---------+----------------
 
- ALTER TABLE:
-  
-  The ALTER statement is always used with "ADD", "DROP" and "MODIFY" commands according to the situation.
-  
-ADD: 
-     add one  column
-     we can add column 
-     insert into foradd values
-    -> (1,"vennila"),
-    -> (2,"nila"),
-    -> (3,"ram");
-mysql> alter table foradd    
-    -> add rollnumber int not null;  // add new column as rollnumber
-mysql> describe foradd;
-+------------+-------------+------+-----+---------+-------+
-| Field      | Type        | Null | Key | Default | Extra |
-+------------+-------------+------+-----+---------+-------+
-| id         | int         | NO   | PRI | NULL    |       |
-| name       | varchar(23) | YES  |     | NULL    |       |
-| rollnumber | int         | NO   |     | NULL    |       |
-+------------+-------------+------+-----+---------+-------+     // rollnumber was added
 
- select * from foradd;
-+----+---------+------------+
-| id | name    | rollnumber |
-+----+---------+------------+
-|  1 | vennila |          0 |
-|  2 | nila    |          0 |
-|  3 | ram     |          0 |    roll number values are not added so default is 0
-+----+---------+---
-
-
-we can add multiple column in table 
-mysql> alter table foradd
-    -> add reg int not null,
-    -> add college varchar(45) not null;
-    describe foradd;
-+------------+-------------+------+-----+---------+-------+
-| Field      | Type        | Null | Key | Default | Extra |
-+------------+-------------+------+-----+---------+-------+
-| id         | int         | NO   | PRI | NULL    |       |
-| name       | varchar(23) | YES  |     | NULL    |       |
-| rollnumber | int         | NO   |     | NULL    |       |
-| reg        | int         | NO   |     | NULL    |       |
-| college    | varchar(45) | NO   |     | NULL    |       |
-+------------+-
- 
- we can also specify where it was placed 
- 
- alter table foradd
-    ->      add favstaff varchar(34) not null
-    ->      after name,
-    ->      add schoolname varchar(45) not null
-    ->     after reg;
-mysql> describe foradd;
-+------------+-------------+------+-----+---------+-------+
-| Field      | Type        | Null | Key | Default | Extra |
-+------------+-------------+------+-----+---------+-------+
-| id         | int         | NO   | PRI | NULL    |       |
-| name       | varchar(23) | YES  |     | NULL    |       |
-| favstaff   | varchar(34) | NO   |     | NULL    |       |
-| rollnumber | int         | NO   |     | NULL    |       |
-| reg        | int         | NO   |     | NULL    |       |
-| schoolname | varchar(45) | NO   |     | NULL    |       |
-| college    | varchar(45) | NO   |     | NULL    |       |
-+------------+-------------+-
- 
- 
- 
-
-
-
-
-COMMANDS:
-
-singleline command: --space
-multuline command:/* */
+RENAME:
+        we can change table name also
+       i)1st way 
+       alter table foradd
+    -> rename to newtable;
+Query OK, 0 rows affecte
+      ii)2nd way
