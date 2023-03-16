@@ -1,0 +1,147 @@
+ ALTER TABLE:
+  
+  The ALTER statement is always used with "ADD", "DROP" and "MODIFY" commands according to the situation.
+  
+ADD: 
+     add one  column
+     we can add column 
+     insert into foradd values
+    -> (1,"vennila"),
+    -> (2,"nila"),
+    -> (3,"ram");
+mysql> alter table foradd    
+    -> add rollnumber int not null;  // add new column as rollnumber
+mysql> describe foradd;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| id         | int         | NO   | PRI | NULL    |       |
+| name       | varchar(23) | YES  |     | NULL    |       |
+| rollnumber | int         | NO   |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+     // rollnumber was added
+
+ select * from foradd;
++----+---------+------------+
+| id | name    | rollnumber |
++----+---------+------------+
+|  1 | vennila |          0 |
+|  2 | nila    |          0 |
+|  3 | ram     |          0 |    roll number values are not added so default is 0
++----+---------+---
+
+
+we can add multiple column in table 
+mysql> alter table foradd
+    -> add reg int not null,
+    -> add college varchar(45) not null;
+    describe foradd;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| id         | int         | NO   | PRI | NULL    |       |
+| name       | varchar(23) | YES  |     | NULL    |       |
+| rollnumber | int         | NO   |     | NULL    |       |
+| reg        | int         | NO   |     | NULL    |       |
+| college    | varchar(45) | NO   |     | NULL    |       |
++------------+-
+ 
+ we can also specify where it was placed 
+ 
+ alter table foradd
+    ->      add favstaff varchar(34) not null
+    ->      after name,
+    ->      add schoolname varchar(45) not null
+    ->     after reg;
+mysql> describe foradd;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| id         | int         | NO   | PRI | NULL    |       |
+| name       | varchar(23) | YES  |     | NULL    |       |
+| favstaff   | varchar(34) | NO   |     | NULL    |       |
+| rollnumber | int         | NO   |     | NULL    |       |
+| reg        | int         | NO   |     | NULL    |       |
+| schoolname | varchar(45) | NO   |     | NULL    |       |
+| college    | varchar(45) | NO   |     | NULL    |       |
++------------+-------------+-
+
+
+MODIFY:
+     
+     we can change the column definition
+     
+      alter table foradd
+    -> modify reg varchar(45) not null;
+mysql> describe foradd;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| id         | int         | NO   | PRI | NULL    |       |
+| name       | varchar(23) | YES  |     | NULL    |       |
+| favstaff   | varchar(34) | NO   |     | NULL    |       |
+| rollnumber | int         | NO   |     | NULL    |       |
+| reg        | varchar(45) | NO   |     | NULL    |       |    // now reg modify int into varchar
+| schoolname | varchar(45) | NO   |     | NULL    |       | 
+| college    | varchar(45) | NO   |     | NULL    |       |
++------------+-------------
+ 
+ 
+ DROP :
+      
+      we can delete pariticular column in table
+      alter table foradd
+    -> drop reg;
+mysql> describe foradd;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| id         | int         | NO   | PRI | NULL    |       |
+| name       | varchar(23) | YES  |     | NULL    |       |
+| favstaff   | varchar(34) | NO   |     | NULL    |       |
+| rollnumber | int         | NO   |     | NULL    |       |     //reg column was deleted 
+| schoolname | varchar(45) | NO   |     | NULL    |       |
+| college    | varchar(45) | NO   |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+
+
+
+RENAME:
+
+       we can change column name  table name also
+       
+       change column name
+       alter table foradd
+    -> change column id register
+    -> int not null;
+    mysql> describe foradd;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| register   | int         | NO   | PRI | NULL    |       |    // now id was changed into register 
+| name       | varchar(23) | YES  |     | NULL    |       |    
+| favstaff   | varchar(34) | NO   |     | NULL    |       |
+| rollnumber | int         | NO   |     | NULL    |       |
+| schoolname | varchar(45) | NO   |     | NULL    |       |
+| college    | varchar(45) | NO   |     | NULL    |       |
++------------+--
+
+
+        change table name
+        
+        alter table foradd
+    -> rename to newtable;
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> describe foradd;
+ERROR 1146 (42S02): Table 'foralter.foradd' doesn't exist
+mysql> describe newtable;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| register   | int         | NO   | PRI | NULL    |       |
+| name       | varchar(23) | YES  |     | NULL    |       |
+| favstaff   | varchar(34) | NO   |     | NULL    |       |
+| rollnumber | int         | NO   |     | NULL    |       |
+| schoolname | varchar(45) | NO   |     | NULL    |       |
+| college    | varchar(45) | NO   |     | NULL    |       |
++------------+-------
