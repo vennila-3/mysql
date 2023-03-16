@@ -152,6 +152,7 @@ describe insertone;
   The ALTER statement is always used with "ADD", "DROP" and "MODIFY" commands according to the situation.
   
 ADD: 
+     add one  column
      we can add column 
      insert into foradd values
     -> (1,"vennila"),
@@ -176,6 +177,49 @@ mysql> describe foradd;
 |  2 | nila    |          0 |
 |  3 | ram     |          0 |    roll number values are not added so default is 0
 +----+---------+---
+
+
+we can add multiple column in table 
+mysql> alter table foradd
+    -> add reg int not null,
+    -> add college varchar(45) not null;
+    describe foradd;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| id         | int         | NO   | PRI | NULL    |       |
+| name       | varchar(23) | YES  |     | NULL    |       |
+| rollnumber | int         | NO   |     | NULL    |       |
+| reg        | int         | NO   |     | NULL    |       |
+| college    | varchar(45) | NO   |     | NULL    |       |
++------------+-
+ 
+ we can also specify where it was placed 
+ 
+ alter table foradd
+    ->      add favstaff varchar(34) not null
+    ->      after name,
+    ->      add schoolname varchar(45) not null
+    ->     after reg;
+mysql> describe foradd;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| id         | int         | NO   | PRI | NULL    |       |
+| name       | varchar(23) | YES  |     | NULL    |       |
+| favstaff   | varchar(34) | NO   |     | NULL    |       |
+| rollnumber | int         | NO   |     | NULL    |       |
+| reg        | int         | NO   |     | NULL    |       |
+| schoolname | varchar(45) | NO   |     | NULL    |       |
+| college    | varchar(45) | NO   |     | NULL    |       |
++------------+-------------+-
+ 
+ 
+ 
+
+
+
+
 COMMANDS:
 
 singleline command: --space
