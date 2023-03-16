@@ -183,3 +183,74 @@ RENAME:
     -> rename to newtable;
 Query OK, 0 rows affecte
       ii)2nd way
+      rename table newtable to nila;
+mysql> describe nila;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| register   | int         | NO   | PRI | NULL    |       |
+| name       | varchar(23) | YES  |     | NULL    |       |
+| favstaff   | varchar(34) | NO   |     | NULL    |       |
+| rollnumber | int         | NO   |     | NULL    |       |
+| schoolname | varchar(45) | NO   |     | NULL    |       |
+| college    | varchar(45) | NO   |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+
+we can modify multiple table name also 
+
+mysql> RENAME TABLE customer TO employee, shirts TO garments;  
+
+
+TRUNCATE TABLE:
+          delete datas only not structure
+           truncate nila;
+mysql> describe nila;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| register   | int         | NO   | PRI | NULL    |       |
+| name       | varchar(23) | YES  |     | NULL    |       |
+| favstaff   | varchar(34) | NO   |     | NULL    |       |
+| rollnumber | int         | NO   |     | NULL    |       |
+| schoolname | varchar(45) | NO   |     | NULL    |       |
+| college    | varchar(45) | NO   |     | NULL    |       |
++------------+-----------
+
+**  Cannot delete or update a parent row: a foreign key   **
+
+
+
+DROP:
+    it is like truncate it delete structure also
+mysql> drop table nila;
+ERROR 1146 (42S02): Table 'foralter.nila' doesn't exist
+
+COPY TABLE
+       insert into rft1 values
+    -> (1,"cvbn"),
+    -> (2,"asdfgh"),
+    -> (3,"rtyui");
+mysql> select * from rft1;
++----+--------+
+| id | name   |
++----+--------+
+|  1 | cvbn   |
+|  2 | asdfgh |
+|  3 | rtyui  |
++----+--------+|  
+
+mysql> create table if not exists newrft
+    -> select * from  rft1;                  // copy syntax| id | name   |
++----+--------+
+|  1 | cvbn   |
+|  2 | asdfgh |
+|  3 | rtyui  |
++----+------
+
+mysql> select * from newrft;
+| id | name   |
++----+--------+
+|  1 | cvbn   |
+|  2 | asdfgh |
+|  3 | rtyui  |
++----+------
