@@ -1,0 +1,116 @@
+CONSTRAINS:
+
+       The constraint in MySQL is used to specify the rule that allows or restricts what values/data will be stored in the table.
+TYPES:
+      classified into two types:
+        i)Column Level Constraints: These constraints are applied only to the single column that limits the type of particular column data.
+        ii)Table Level Constraints: These constraints are applied to the entire table that limits the type of data for the whole table
+        
+        
+        NOT NULL   -- column cannot have NULL or empty values.
+        CHECK     --we give in create table it wil check in insert part if it not suitable for check condition through error
+        DEFAULT
+        PRIMARY KEY
+        AUTO_INCREMENT
+        UNIQUE   --column will be unique.cannot stores duplicate values
+        INDEX
+        ENUM
+        FOREIGN KEY
+        
+        
+        
+        NOTNULL:
+            mysql> CREATE TABLE Student(
+            Id INTEGER, 
+            LastName TEXT NOT NULL,
+            FirstName TEXT NOT NULL,
+            City VARCHAR(35));  
+              
+              we  cant store empty or null
+              
+        UNIQUE:
+              column will be unique.cannot stores duplicate values
+              use more than one column with UNIQUE constraint in a table.
+              create table qr(
+              -> id int unique,
+              -> namme varchar(234) unique);
+              
+              if we suppose insert duplicate value warning will be show like this
+              Duplicate entry '1' for key 'q.id'
+      CHECK:
+           It ensures that the inserted value in a column must be satisfied with the given condition.
+           
+           example 
+               mysql> create table chec(
+              -> id int not null,
+               -> name varchar(234),
+               -> age int check(age>=18)  //check condition
+                 -> ); 
+                  insert into chec values
+                  -> (1,"wer",12),  // condition doesnot satisfy
+                    -> (2,"kjhg",56);
+             ERROR WILL THROUGH  :ERROR 3819 (HY000): Check constraint 'chec_chk_1' is violated.
+             
+      DEFALUT:
+            constraint is used to set the default value for the particular column where we have not specified any value.
+            we don't want to insert values  beacause default it set values.
+         example:
+               mysql> create table  def(
+              id int,
+             name varchar(23),
+            city varchar(23) default "chennai"
+              );
+              mysql> insert into def (id,name) values(2,"nila");
+        OUTPUT
+            2 | nila  | chennai   //   city name default it set chennai
+            
+   PRIMARY KEY:
+            constraints, then it cannot be null or empty.
+             cannot be null or empty. A table may have duplicate columns, but it can contain only one primary key
+        EXAMPLE:
+             mysql> create table rft1(
+               id int 
+               name varchar(234),
+                 primary key(id));
+
+  AUTO_INCREMENT Constraint
+  
+                automatically generates a unique number whenever we insert a new record into the table.
+                Generally, we use this constraint for the primary key field in a table.
+           EXAMPLE:  
+                CREATE TABLE Animals(  
+                 id int NOT NULL AUTO_INCREMENT,   
+                 name CHAR(30) NOT NULL,   
+                  PRIMARY KEY (id))
+                  
+ ENUM:
+                  It allows us to limit the value chosen from a list of permitted values in the column specification at the time of table creation.
+             EXAMPLE:
+         create table en (
+         id int,
+         size enum ("xl","xxl")
+         );
+         mysql> insert into en values
+         (3,"s"),   // here we include new size  so through error
+         (4,"xl");
+      ERROR 1265 (01000): Data truncated for column 'size' at row
+      
+FORGIEN KEY:
+          
+          It means a foreign key field in one table refers to the primary key field of another table.
+
+       CREATE TABLE Persons (  
+       Person_ID int NOT NULL PRIMARY KEY,   
+       Name varchar(45) NOT NULL,   
+       Age int,   
+       City varchar(25)  
+        );  
+        CREATE TABLE Orders (  
+        Order_ID int NOT NULL PRIMARY KEY,  
+        Order_Num int NOT NULL,  
+       Person_ID int,  
+       FOREIGN KEY (Person_ID) REFERENCES Persons(Person_ID)  
+        );  
+
+  
+   
