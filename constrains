@@ -65,7 +65,7 @@ TYPES:
             2 | nila  | chennai   //   city name default it set chennai
             
    PRIMARY KEY:
-            constraints, then it cannot be null or empty.
+            constraints, then it cannot be null or empty.The primary key column cannot stores duplicate values into a table.
              cannot be null or empty. A table may have duplicate columns, but it can contain only one primary key
         EXAMPLE:
              mysql> create table rft1(
@@ -112,5 +112,16 @@ FORGIEN KEY:
        FOREIGN KEY (Person_ID) REFERENCES Persons(Person_ID)  
         );  
 
-  
+
+
+DUPLIACTE KEYS WE CAN INCLUDE 
+         //syntax insert INTO Student(Stud_ID, Name, Email, City)   
+          VALUES (4, 'John', 'john@javatpoint.com', 'New York')  
+          ON DUPLICATE KEY UPDATE City = 'California';
+THE ANOTHER WAY TO INCLUDE DUPLIACTE 
+            INSERT INTO Student(Stud_ID, Name, Email, City)   
+           VALUES (4,'Donald', 'donald@javatpoint.com', 'New York'),   
+           (5, 'Joseph', 'Joseph@javatpoint.com', 'Chicago')
+
+
    
