@@ -1,0 +1,53 @@
+JOIN 
+    used to retrieve data from multiple tables
+ TYPES:
+ 
+   INNER JOIN  //2 tables la common datas
+   LEFT OUTER JOIN   // 2 tables common + left table
+   RIGHT OUTER JOIN  //2 tables common + right table
+   
+INNER JOIN:
+      
+      used to returns only those results from the tables that match the specified condition and hides other rows and columns
+      
+      example:
+           
+           2 tables inner join 
+           
+            select iner.college,iner.college,ano.course,ano.sub
+            -> from iner
+            -> inner join ano
+            -> on iner.id=ano.id;
+
+          MULTITABLE INNER JOIN
+                
+                select iner.college,ano.sub,nex.school,nex.tenth,nex.twelth
+               -> from iner
+               -> inner join ano using(id)
+               -> inner join nex using(id
+               
+LEFT JOIN:
+
+          select iner.college,ano.course,ano.sub
+          -> from iner
+          -> left join ano
+         -> using (id);
+         
+RIGHT JOIN:
+          
+          select ano.sub,nex.school,nex.tenth,nex.twelth
+         -> from iner
+       -> rigt join ano using(id)
+       -> right join nex using(id);
+       
+CROSS JOIN:
+          
+          combine all possibilities of the two or more tables and returns the result that contains every row from all contributing table.
+          
+          example:
+         select iner.college,ano.course,ano.sub
+        -> from iner
+        -> cross join ano;
+        
+SELF JOIN:
+          A SELF JOIN is a join that is used to join a table with itself
