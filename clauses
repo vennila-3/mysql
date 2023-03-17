@@ -58,10 +58,20 @@ HAVING:
         
        having like where   nama group pannunathula ethu ethu venumo atha matum get panna use (HAVING ID<7) like this
        where:filter rows
-       having:filter groups
-       
-       
-         
-          
+       having:filter group
+IMPORTANT:
+      structure will be followed 
+      
+      where
+      group by
+      having  
+    SYNTAX:
+        select id,min(salaray) as 'minu'
+            from cf2
+            group by id
+            having id<7;
+    
+      order by
+      
 
 
