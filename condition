@@ -1,0 +1,59 @@
+condition statement (flow function)
+      if()
+      ifnull()
+      nullif()
+      case()
+      if statement()
+  
+IF()
+    If condition true print what we give or else print what we give 
+    like where but difference is it show satisfy condition only but if function show all
+ SYNTAX:
+     select name,if(salaray>123,"high","low") from cf2;       
+     +-------+------------------------------+
+     | name  | if(salaray>123,"high","low") |
+     +-------+------------------------------+
+     | ghjk  | low                          |
+     | werfg | high                         |
+     | asdf  | low                          |
+     | wer   | high                         |
+     | sdf   | low                          |
+ 
+ IFNULL()
+     if we insert nulll or empty value antha empty palce la  value can insert pannikalm in this type
+        select *, ifnull(name,college)college from cf2;   //create new column name as college which was give in after ifnull() if name null means in this place college will display
+         +----+-------+---------+---------+---------+
+         | id | name  | salaray | college | college |
+         +----+-------+---------+---------+---------+
+         |  1 | ghjk  |     123 | sece    | ghjk    |
+         |  2 | werfg |     345 | sece    | werfg   |
+         |  3 | asdf  |     123 | sece    | asdf    |
+ 
+    
+ NULLIF() 
+    SYNTAX:
+        SELECT cust_name, occupation, qualification,   
+        NULLIF (qualification,"Btech") result      // if qulaification is btech dont show else show other qualification expect b,tech(b,tech thavara ellam varum b.tech la null varum)
+        FROM myproductdb.customer;  
+        
+  CASE:
+        like switch case
+        SYNTAX:
+         insert into dep values
+       -> ('cse'),
+       -> ('ece'),
+       -> ('eee');
+       mysql> select
+    ->      case depa
+    ->      when 'cse' then 'computer'
+    ->     when 'ece' then 'electronics'
+    ->     when 'eee' then 'eeeeeeeeeeeee'
+    ->      else 'no'
+    ->     end  as abb from dep;
+   
+      | abb           |
+      +---------------+
+      | computer      |
+      | electronics   |
+      | eeeeeeeeeeeee |
+       
