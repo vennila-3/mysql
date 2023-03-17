@@ -56,4 +56,22 @@ IF()
       | computer      |
       | electronics   |
       | eeeeeeeeeeeee |
+      
+      
+      
+ MySQL Conditions
+        AND   // where id=2 and name="fghjk"
+        OR    // where id=2 or name="fghjk
+        AND OR   //both are
+        Boolean   // return true or false give datttatype in boolean when create table
+        in        // where name in('venni','nila');   
+        ANY       //SELECT num_value FROM table1   WHERE num_value > ANY (SELECT num_val FROM table2);   table1 table 2 comapre pannuthu table 1 la tha high values so output will be table1
+        Exists     
+        NOT       // where officer_name NOT IN ('Ajeet','Vimal','Deepika');   in opposite
+        Not Equal    //sELECT * FROM students WHERE city != "England";  
+        IS NULL
+        IS NOT NULL
+        BETWEEN        //select * from table3 where id between 1 and 5;  o/p sho id<=5 and id>=1 
+
+
        
