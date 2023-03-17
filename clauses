@@ -1,0 +1,67 @@
+CLAUSES:
+       1) WHERE    -- select specific  values
+       2)DISTINCT  -- select only unique remove dupliacte
+       3)FROM
+       4)ORDER BY
+       5)GROUP BY
+       6)HAVING
+WHERE:
+      filter the results. 
+      It specifies a specific position where you have to do the operation.
+
+  mysql> select * from cf1
+    -> where name="fghjk" and id=5 or id =7;
++----+-------+-----------+----------+
+| id | name  | firstname | lastname |
++----+-------+-----------+----------+
+|  5 | fghjk | dfghjk    | ghjk     |
+|  7 | fghjk | iop       | op       
++----+-------+-----
+
+DISTINCT:
+          MySQL DISTINCT clause is used to remove duplicate records from the table and fetch only the unique records.
+          
+select distinct name from cf1;
++---------+
+| name    |
++---------+    // remove duplicate names
+| vennila |
+| nila    |
+| kjhgfd  |
+| dfghjkl |
+| fghjk   |
+| ghjk    |
++---------+
+
+
+FROM:
+          select records from a table or database;
+          syntax: select * from tablename;
+          
+ORDER BY:
+
+
+          used to sort the records in ascending or descending order.
+          syntax: 
+         i) mysql> select * from cf1  order by lastname  // it will print ascending
+         ii) select name from cf1 order by name desc     // print descending
+         iii)mysql> select name,lastname from cf1  order by name asc,lastname desc;    // name in ascending lastname in descending
+         
+         
+GROUP BY:
+         group by using select a group 
+         for example table collegename column contains same college name may be  repeat we want how many memnbers study in college we can get using this function
+         ellam different different ah iruntha group panrathu wastse 
+         
+         
+HAVING:
+        
+       having like where   nama group pannunathula ethu ethu venumo atha matum get panna use (HAVING ID<7) like this
+       where:filter rows
+       having:filter groups
+       
+       
+         
+          
+
+
