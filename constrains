@@ -112,6 +112,11 @@ FORGIEN KEY:
        FOREIGN KEY (Person_ID) REFERENCES Persons(Person_ID)  
         );  
 
+COMPOSITE KEY:
+     it is a combination of two or more than two columns in a table that allows us to identify each row of the table uniquely
+     SYNTAX:
+     PRIMARY KEY(Name, Manufacturer)    // here we set primary key for 2 column
+
 
 
 DUPLIACTE KEYS WE CAN INCLUDE 
