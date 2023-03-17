@@ -1,0 +1,29 @@
+Aggregate Functions
+        perform calculations on multiple values and return the result in a single value like the average of all values
+        Aggregate Function	Descriptions
+   count()	      It returns the number of rows, including rows with NULL values in a group.
+   sum()       	  It returns the total summed values (Non-NULL) in a set.
+   average()    	It returns the average value of an expression.
+   min()         	It returns the minimum (lowest) value in a set.
+   max()	        It returns the maximum (highest) value in a set.
+  groutp_concat()	It returns a concatenated string.
+  first()	        It returns the first value of an expression.
+  last()	        It returns the last value of an expression.
+
+
+COUNT:
+    mysql> select count(id) from cf2;  ( SELECT emp_name, emp_age, COUNT(*) FROM employees   GROUP BY emp_age    HAVING COUNT(*)>=2   ORDER BY COUNT(*);  )
+
+SUM:
+    select sum(id) from cf2;
+AVERAGE:
+    select avg(id) from cf2;
+MIN()
+    select min(name) from cf2;
+MAX
+     select mAX(name) from cf2;
+FIRST 
+      select id from cf2 limit 1;
+LAST
+      select id from cf2 order by id desc limit 1;
+     
