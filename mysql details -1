@@ -37,7 +37,15 @@ Some of The Most Important SQL Commands
      DROP TABLE - deletes a table
      CREATE INDEX - creates an index (search key)
      DROP INDEX - deletes an index
-
+     
+COMMAND CATAGORIZATION :
+     These SQL commands are mainly categorized into five categories: 
+     DDL – Data Definition Language       CREATE ALTER DROP TRUNCATE
+     DQL – Data Query Language            SELECT
+     DML – Data Manipulation Language     INSERT UPDATE DELETE
+     DCL – Data Control Language          Grant Revoke
+     TCL – Transaction Control Language   COMMIT ROLLBACK SAVEPOINT
+     
 DATA TYPES:
        1)STRING DATA TYPE
        2)NUMERIC DATA TYPE
