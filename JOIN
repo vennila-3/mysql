@@ -4,7 +4,7 @@ JOIN
  
    INNER JOIN  //2 tables la common datas
    LEFT OUTER JOIN   // 2 tables common + left table
-   RIGHT OUTER JOIN  //2 tables common + right table
+   RIGHT OUTER JOIN  //2 tables common + right table.
    
 INNER JOIN:
       
